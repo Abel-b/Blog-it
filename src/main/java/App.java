@@ -1,11 +1,9 @@
-import java.util.ArrayList;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+
 import java.util.HashMap;
 import java.util.Map;
 
-
-
-import spark.ModelAndView;
-import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
 
 public class App {
@@ -33,6 +31,11 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "displayBlogs.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/about", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "about.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/posts/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToFind = Integer.parseInt(req.params(":id")); //pull id - must match route segment
