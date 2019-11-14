@@ -51,4 +51,9 @@ public class Post {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+    //get a specific post
+    public static Post findById(int id){
+        return postInstances.get(id - 1);
+    }
+
 }
