@@ -1,34 +1,54 @@
 package models;
 
-
 import java.time.LocalDateTime;
+import java.util.AbstractList;
+import java.util.ArrayList;
 
 public class Post {
 
-    private int id;
-    private String title;
     private String content;
+    private String title;
+    private static ArrayList<Post> postInstances = new ArrayList<Post>();
+    private int id;
     private LocalDateTime createdAt;
 
+    public Post(String content, String title){
+        this.content = content;
+        this.title = title;
+        postInstances.add(this);
+        id = postInstances.size();
+        this.createdAt = LocalDateTime.now();
+    }
 
-    public int getId() {
-        return this.id = 0;
+    public static void clearAllPost(){
+        postInstances.clear();
+    }
+
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+         this.content = content;
     }
 
     public String getTitle() {
-        return this.title = "Motivation";
+        return title;
     }
 
-    public String  getContent() {
-        return this.content = "This is a content part";
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public int getId() {
+        return id;
+    }
+    //get all posts
+    public ArrayList<Post> getAllPost(){
+        return postInstances;
     }
 
-    public LocalDateTime getCreatedAt(){
-        return this.createdAt = LocalDateTime.now();
-    }
-
-
-    public void setId(int id) {
-        this.id = id;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 }
