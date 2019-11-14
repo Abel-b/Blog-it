@@ -1,6 +1,7 @@
 package models;
 
 import java.time.LocalDateTime;
+import java.util.AbstractList;
 import java.util.ArrayList;
 
 public class Post {
@@ -19,12 +20,17 @@ public class Post {
         this.createdAt = LocalDateTime.now();
     }
 
+    public static void clearAllPost(){
+        postInstances.clear();
+    }
+
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
-        this.content = content;
+         this.content = content;
     }
 
     public String getTitle() {
