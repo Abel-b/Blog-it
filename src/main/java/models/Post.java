@@ -47,6 +47,18 @@ public class Post {
     public ArrayList<Post> getAllPost(){
         return postInstances;
     }
+    //clear all posts
+    public static void clearAllPosts(){
+        postInstances.clear();
+    }
+    //get post by id
+    public static Post getPostById(int id){
+        return postInstances.get(id -1);
+    }
+    //update post
+    public void upDatePost(String content){
+        this.content = content;
+    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
