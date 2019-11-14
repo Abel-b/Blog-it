@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-import models.Post;
+
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
