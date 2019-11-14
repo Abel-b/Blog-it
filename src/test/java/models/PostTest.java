@@ -66,12 +66,30 @@ public class PostTest {
     }
     @Test
     public void allPostsAreReturned_true(){
-    Post.clearAllPost();
-    Post post = setupNewPost();
-    Post otherPost = new Post("New post-content", "New post-title");
-    assertEquals(2, post.getAllPost().size());
+        Post.clearAllPost();
+        Post post = setupNewPost();
+        Post otherPost = new Post("New post-content", "New post-title");
+        int expected = 2;
+        assertEquals(expected, post.getAllPost().size());
     }
-
+    @Test
+    public void deletePostActivation_true(){
+        Post.clearAllPost();
+        Post post = setupNewPost();
+        Post secondPost = new Post("New post-content", "New post-title");
+        Post thirdPost = new Post("next post-content", "next post-title");
+        Post.deleteById(2);
+        int expected = 2;
+        assertEquals(expected, post.getAllPost().size());
+    }
+    @Test
+    public void updatePostFromPosts_true(){
+        Post.clearAllPost();
+        Post post = setupNewPost();
+        post.updatePost("Changed content");
+        String expected = "Changed content";
+        assertEquals(expected, post.getContent());
+    }
 
     private Post setupNewPost() {
         return new Post("This is a content", "This is a title");
