@@ -47,16 +47,8 @@ public class Post {
     public ArrayList<Post> getAllPost(){
         return postInstances;
     }
-    //clear all posts
-    public static void clearAllPosts(){
-        postInstances.clear();
-    }
-    //get post by id
-    public static Post getPostById(int id){
-        return postInstances.get(id -1);
-    }
     //update post
-    public void upDatePost(String content){
+    public void updatePost(String content){
         this.content = content;
     }
 
@@ -67,5 +59,10 @@ public class Post {
     public static Post findById(int id){
         return postInstances.get(id - 1);
     }
+    //delete a specific post
+    public static void deleteById(int id){
+        postInstances.remove(id - 1);
+    }
+
 
 }
