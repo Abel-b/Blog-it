@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+    <h1>Posts</h1>
+    {{#if posts}}
+    {{#each posts }}
+        <button>Update</button>
+        <button>Delete</button>
+
+        <p>Current post:</p>
+    <p>{{ content }} <a href="/posts/{{id}}">read more...</a></p>
+    {{/each}}
+    {{else}}
+    <p>No posts to be added</p>
+    {{/if}}
+    <h1>post details</h1>
+
+{{/partial}}
+
+{{> layout.hbs}}
